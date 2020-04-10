@@ -1,5 +1,7 @@
 package starwars.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,4 +28,14 @@ public class FilmController {
 		return filmService.findFilm(pk);
 	}
 
+	@GetMapping("/films")
+	public List<FilmDto> getAllFilms() {
+		return filmService.findAllFilms();
+	}
+	
+	@PostMapping("/films1")
+	public List<FilmDto> addAllFilms(@RequestBody List<FilmDto> filmsDto) {
+		filmsDto.forEach(a -> System.out.println(a.getFieldsDto()));
+		return filmService.addAllFilms(filmsDto);
+	}
 }

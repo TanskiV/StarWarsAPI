@@ -1,14 +1,15 @@
-package starwars.dto.film;
+package starwars.model;
 
 import java.util.List;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Setter
+@Builder
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Fields {
 	List<Integer> starships;
 	String edited;
