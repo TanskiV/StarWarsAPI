@@ -39,8 +39,7 @@ StarWarsRepository starWarsRepository;
 				.build())
 				.collect(Collectors.toList());
 		
-		List<Film> savedFilms = starWarsRepository.saveAll(films);
-		
+		List<Film> savedFilms = starWarsRepository.saveAll(films);	
 		return savedFilms.stream().map(sf -> FilmDto.builder().fields(fieledsToFiledsDto(sf.getFields()))
 				.model(sf.getModel())
 				.pk(sf.getPk())
@@ -93,7 +92,7 @@ StarWarsRepository starWarsRepository;
 	
 	@Override
 	public FilmDto updateFilm(FilmDto filmDto, Integer pk) {
-	Film film = starWarsRepository.findById(pk).orElseThrow();
+	Film film = starWarsRepository.findById(pk).orElse(null);
 		
 	FilmDto returnDto =	FilmDto.builder()
 		.fields(fieledsToFiledsDto(film.getFields()))
