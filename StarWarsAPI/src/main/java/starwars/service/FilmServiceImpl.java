@@ -6,17 +6,17 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import starwars.dao.StarWarsRepository;
-import starwars.dto.film.FieldsDto;
+import starwars.dao.FilmsRepository;
+import starwars.dto.film.FilmsFieldsDto;
 import starwars.dto.film.FilmDto;
-import starwars.model.Fields;
-import starwars.model.Film;
+import starwars.model.films.Film;
+import starwars.model.films.FilmFields;
 
 @Service
 public class FilmServiceImpl implements FilmService {
 	
 @Autowired
-StarWarsRepository starWarsRepository;
+FilmsRepository starWarsRepository;
 
 	@Override
 	public boolean addFilm(FilmDto filmDto) {
@@ -112,8 +112,8 @@ StarWarsRepository starWarsRepository;
 		
 	}
 	
-	private Fields fieldsDtoToFileds(FieldsDto fieldsDto) {
-		return Fields.builder()
+	private FilmFields fieldsDtoToFileds(FilmsFieldsDto fieldsDto) {
+		return FilmFields.builder()
 				.starships(fieldsDto.getStarships())
 				.edited(fieldsDto.getEdited())
 				.vehicles(fieldsDto.getVehicles())
@@ -130,8 +130,8 @@ StarWarsRepository starWarsRepository;
 				.build();
 
 	}
-	private FieldsDto fieledsToFiledsDto(Fields fields) {
-		return FieldsDto.builder().characters(fields.getCharacters())
+	private FilmsFieldsDto fieledsToFiledsDto(FilmFields fields) {
+		return FilmsFieldsDto.builder().characters(fields.getCharacters())
 				.created(fields.getCreated())
 				.director(fields.getDirector())
 				.edited(fields.getEdited())

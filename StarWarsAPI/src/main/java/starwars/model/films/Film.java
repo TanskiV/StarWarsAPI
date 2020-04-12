@@ -1,4 +1,4 @@
-package starwars.model;
+package starwars.model.films;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,7 +17,7 @@ import lombok.Setter;
 @Document(collection = "films")
 @Builder
 public class Film {
-	Fields fields;
+	FilmFields fields;
 	String model;
 	@Id
 	Integer pk;
