@@ -9,5 +9,7 @@ public interface FilmService {
 	List<FilmDto> addAllFilms(List<FilmDto> allFilms);
 	FilmDto findFilm (Integer pk);
 	List<FilmDto> findAllFilms();
-
+	boolean deleteFilm(Integer pk);
+	List<FilmDto> deleteAllFilms();
+	FilmDto updateFilm(FilmDto filmDto, Integer pk);
 }

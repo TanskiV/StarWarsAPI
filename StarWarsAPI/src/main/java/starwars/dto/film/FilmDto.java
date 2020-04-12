@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 public class FilmDto {
-	FieldsDto fieldsDto;
+	FieldsDto fields;
 	String model;
 	Integer pk;
 }

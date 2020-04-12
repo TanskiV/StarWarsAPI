@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Fields {
 	List<Integer> starships;
 	String edited;
