@@ -51,7 +51,7 @@ StarWarsRepository starWarsRepository;
 	@Override
 	public FilmDto findFilm(Integer pk) {
 		Film film = starWarsRepository.findById(pk)
-				.orElse(null);
+				.orElse(new Film());
 		return FilmDto.builder().fields(fieledsToFiledsDto(film.getFields()))
 				.model(film.getModel())
 				.pk(film.getPk())
@@ -92,8 +92,7 @@ StarWarsRepository starWarsRepository;
 	
 	@Override
 	public FilmDto updateFilm(FilmDto filmDto, Integer pk) {
-	Film film = starWarsRepository.findById(pk).orElse(null);
-		
+	Film film = starWarsRepository.findById(pk).orElse(new Film());
 	FilmDto returnDto =	FilmDto.builder()
 		.fields(fieledsToFiledsDto(film.getFields()))
 		.pk(film.getPk())
